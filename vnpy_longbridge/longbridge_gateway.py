@@ -371,7 +371,7 @@ class LongBridgeGateway(BaseGateway):
                     direction=Direction.LONG if stock.quantity >= 0 else Direction.SHORT,
                     price=float(stock.cost_price),
                     frozen=float(stock.quantity - stock.available_quantity),
-                    volume=stock.quantity,
+                    volume=float(stock.quantity),
                     pnl=round(float((quote.last_done - stock.cost_price) * stock.quantity), 2),
                 )
                 position.pct_pnl = round(float(quote.last_done / stock.cost_price - 1) * 100 * sign(stock.quantity), 2)
